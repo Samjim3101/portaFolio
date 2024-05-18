@@ -1,52 +1,64 @@
-function ShowHide() {
-    var encriptado = document.getElementsByClassName("encriptado")[0];
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  function abrirPDF() {
+    var pdfURL = 'img/CurriculumSamuel.pdf';
+    window.open(pdfURL, '_blank');
 }
 
-function encriptar() {
-    let texto = document.getElementById("texto").value;
-    let tituloMensaje = document.getElementById("titulo-mensaje");
-    let parrafo = document.getElementById("parrafo");
-    let personas = document.getElementById("personas");
-    
-    let textoCifrado = texto
-                        .replace(/e/gi, "enter")
-                        .replace(/i/gi, "imes")
-                        .replace(/a/gi, "ai")
-                        .replace(/o/gi, "ober") 
-                        .replace(/u/gi, "ufat")
+document.getElementById('abrirPDF').addEventListener('click', abrirPDF);
+});
 
-if (texto.length != 0) {
-    document.getElementById("texto").value = textoCifrado;
-    Swal.fire({
-        title: "¡Listo!",
-        text: "Tu texto se ha encriptado!",
-        icon: "success"
-      });
-      tituloMensaje.textContent = textoCifrado
-    //   tituloMensaje.textContent = "Texto encriptado con éxito";
-    parrafo.textContent = "";
-    // personas.src = "./img/desencriptado.jpg";
-    personas = "";
-    
-    
-} else {
-    personas.src = "./img/muñeco.png";
-    tituloMensaje.textContent = "Ningun mensaje fue encontrado";
-    parrafo.textContent = "Ingresa el  texto que deseas encriptar o desencriptar";
-    // alert("Debes ingresar algún texto")
-    Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Debes ingresar algún texto",
-        footer: 'Recuerda que debe ser en minúsculas y sin acentos'
-    });
-}
-}
 
-function requerimientos() {
-    var boton = document.getElementsByClassName("enviar")[0];
-}
+function mail() {
+  console.log("it's works!");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let nombre = document.getElementById("nombre").value;
+  if (nombre.length == 0) {
+    console.log("nuestro string esta vacio");
+    document.getElementById("nombre_error").textContent =
+      "El campo nombre no debe estar vacío.*";
+  } else {
+    if (nombre.length > 50) {
+      document.getElementById("nombre_error").textContent =
+        "El campo solo soporta 50 caracteres.*";
+    } else {
+      document.getElementById("nombre_error").textContent = "";
+      let email = document.getElementById("email").value;
+      if (email.length == 0) {
+        document.getElementById("email_error").textContent =
+          "El campo nombre no debe estar vacío.*";
+      } else {
+        if (!emailRegex.test(email)) {
+          document.getElementById("email_error").textContent =
+            "El email que se agrego no es correcto.*";
+        } else {
+          document.getElementById("email_error").textContent = "";
+          let asunto = document.getElementById("asunto").value;
+          if (asunto.length == 0) {
+            document.getElementById("asunto_error").textContent = "El campo asunto no debe estar vacío";
+          } else {
+            if (asunto.length > 50) {
+              document.getElementById("asunto_error").textContent = "El asunto sólo soporta 50 caracteres.*"
+            } else {
+              document.getElementById("asunto_error").textContent = "";
+              let mensaje = document.getElementById("mensaje").value;
+              if (mensaje.length == 0) {
+                document.getElementById("mensaje_error").textContent = "El mensaje no debe estar vacío";
+              } else {
+                if (mensaje.length > 300) {
+                  document.getElementById("mensaje_error").textContent = "El mensaje debe contener máximo 300 caracteres";
+                } else {
+                  document.getElementById("mensaje_error").textContent = "";
+                }
+              }
 
-function variableNombre() {
-    let nombre = document.getElementById("nombre")
-}
+              }
+            }
+            
+          }
+        }
+      }
+    }
+  }
+
