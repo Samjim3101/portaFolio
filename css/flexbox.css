@@ -546,10 +546,26 @@
         flex-direction: column;
     }
 
+    .int{
+        position: relative;
+        top: 8px;
+    }
+    
+    .int1{
+        position: relative;
+        top: 35px;
+    }
+
+    .salida{
+        width: 10%;
+        display: flex;
+        justify-content: center;
+    }
+
     .btn-copiar{
         position: relative;
         left: 23px;
-        top: 30px;
+        top: 15px;
     }
 
     .btn-copiar:hover{
