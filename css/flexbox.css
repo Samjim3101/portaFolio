@@ -178,7 +178,17 @@
     display: flex;
     flex-direction: column;
     margin: 0 0 0 22px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.int{
+    position: relative;
+    bottom: 12px;
+}
+
+.int1{
+    position: relative;
+    top: 35px;
 }
 
 .entrada-ingreso2{
@@ -203,6 +213,17 @@
     color: white;
     font-size: 14px;
     font-weight: 600;
+}
+
+.salida{
+    width: 48%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-copiar{
+    display: flex;
+    margin: 20px 0px 15px 0px;
 }
 
 .final{
